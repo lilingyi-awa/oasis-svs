@@ -1,3 +1,20 @@
+__COPYRIGHT__ = """
+ _    Lynxnet-2a                     _    ____         
+| | _   _  ____  __  __ ____    ___ | |_ |___ \   ____ 
+| || | | ||  _ \ \ \/ /|  _ \  / _ \| __|  __) | / _  |
+| || |_| || | | | |  | | | | ||  __/| |_  / __/ | (_| |
+|_| \__  ||_| |_|/_/\_\|_| |_| \___| \__||_____| \____|
+    |___/
+            (C) Project VsingerXiaoice Group. SSPL-1.0 License.
+"""
+class RightPrinter:
+    is_printed = False
+    @staticmethod
+    def printC():
+        if not RightPrinter.is_printed:
+            RightPrinter.is_printed = True
+            print(__COPYRIGHT__)
+
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
@@ -112,6 +129,7 @@ class LYNXNet2a(nn.Module):
         :param cond: [B, H, T]
         :return:
         """
+        RightPrinter.printC()
 
         if self.n_feats == 1:
             x = spec[:, 0]  # [B, M, T]
